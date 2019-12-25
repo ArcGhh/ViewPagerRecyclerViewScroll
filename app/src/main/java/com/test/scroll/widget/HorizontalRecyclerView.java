@@ -34,7 +34,7 @@ public class HorizontalRecyclerView extends RecyclerView {
     public boolean dispatchTouchEvent(MotionEvent event) {
         //解决recyclerView和viewPager的滑动影响
         //当滑动recyclerView时，告知父控件不要拦截事件，交给子view处理
-        get(true);
+        get(false);
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 //当手指按下的时候
@@ -48,14 +48,14 @@ public class HorizontalRecyclerView extends RecyclerView {
                 float offsetX = Math.abs(x2 - x1);
                 float offsetY = Math.abs(y2 - y1);
                 if (offsetX >= offsetY) {
-                    get(false);//手指左移
+                    get(true);//手指左移
                 } else {
-                    get(true);
+                    get(false);
                 }
                 break;
             case MotionEvent.ACTION_UP:
                 x1 = y1 = 0;
-                get(true);
+                get(false);
                 break;
         }
         return super.dispatchTouchEvent(event);
@@ -63,6 +63,8 @@ public class HorizontalRecyclerView extends RecyclerView {
 
     private ViewParent mViewParent;
 
+    //使用迭代 直至找到parent是NoScrollViewPager为止
+    //效率有些低 偏low 莫见怪
     private void get(boolean isEnable) {
         if (mViewParent == null)
             mViewParent = getParent();
@@ -71,7 +73,7 @@ public class HorizontalRecyclerView extends RecyclerView {
         if (mViewParent instanceof NoScrollViewPager) {
 
             NoScrollViewPager viewPager = (NoScrollViewPager) mViewParent;
-            viewPager.setNoScroll(!isEnable);
+            viewPager.setNoScroll(isEnable);
 
         } else {
             get(isEnable);

@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
 import com.test.scroll.adapter.MyPagerAdapter;
-import com.test.scroll.bean.DataInfo;
 import com.test.scroll.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
@@ -14,7 +13,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<DataInfo> mDataInfos = new ArrayList<>();
     private ActivityMainBinding mBinding;
     private List<String> mTitles;
     private List<Fragment> mFragments;
