@@ -1,0 +1,2 @@
+# ViewPagerRecyclerViewScroll
+解决ViewPager嵌套Recyclerview滑动冲突
