@@ -86,6 +86,10 @@
     }
 ```
 
+## 使用
+把HorizontalRecyclerView当做正常的Recyclerview使用即可
+好了，大功告成，目前已经用在项目中 暂无发现问题 如有发现问题的朋友 还请私聊告知
+
 ## 参考
 [Android禁止滑动的NoScrollViewPager](https://blog.csdn.net/yilei0033/article/details/79444099)
 
