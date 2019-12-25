@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    >
+
+    <com.test.scroll.widget.HorizontalRecyclerView
+        android:id="@+id/layoutRecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        />
+
+    <com.test.scroll.widget.PageIndicatorView
+        android:id="@+id/pageIndicatorView"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        app:imgHeight="5"
+        app:selectImg="@mipmap/ic_home_point_select"
+        app:unSelectImg="@mipmap/ic_home_point_unselect"
+        />
+
+</LinearLayout>
