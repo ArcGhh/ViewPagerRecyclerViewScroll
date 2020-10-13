@@ -130,4 +130,8 @@ public class PageIndicatorView extends LinearLayout {
     public void setUnSelectImg(int unSelectImg) {
         this.unSelectImg = unSelectImg;
     }
+
+    public int getCount() {
+        return count;
+    }
 }

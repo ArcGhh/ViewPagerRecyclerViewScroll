@@ -6,9 +6,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -122,8 +124,12 @@ public class ContentFragment extends Fragment {
     public void initPagerGridLayout() {
         removeHeadView(mAdapter);
         View view = getLayoutInflater().inflate(R.layout.layout_page_recyclerview, null);
-        HorizontalRecyclerView pageRecyclerView = view.findViewById(R.id.layoutRecyclerview);
+        final HorizontalRecyclerView pageRecyclerView = view.findViewById(R.id.layoutRecyclerview);
         final PageIndicatorView pageIndicatorView = view.findViewById(R.id.pageIndicatorView);
+
+        // 设置右边距
+        LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) pageRecyclerView.getLayoutParams();
+        lp.rightMargin = type == 0 ? SizeUtils.dp2px(50) : 0;
 
         PagerGridLayoutManager mLayoutManager = new PagerGridLayoutManager(2, 4, PagerGridLayoutManager
                 .HORIZONTAL);
@@ -157,11 +163,14 @@ public class ContentFragment extends Fragment {
         mLayoutManager.setPageListener(new PagerGridLayoutManager.PageListener() {
             @Override
             public void onPageSizeChanged(final int pageSize) {
+                if (mAdapter == null) return;
                 pageIndicatorView.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        if (mAdapter == null) return;
                         pageIndicatorView.initIndicator(pageSize);
                         mAdapter.notifyDataSetChanged();
+                        pageRecyclerView.setSize(pageSize);
                     }
                 }, 200);
             }
@@ -169,6 +178,7 @@ public class ContentFragment extends Fragment {
             @Override
             public void onPageSelect(int pageIndex) {
                 pageIndicatorView.setSelectedPage(pageIndex);
+                pageRecyclerView.setPosition(pageIndex);
             }
         });
 
