@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PageIndicatorView">
+        <attr name="selectImg"  format="reference|integer"/>
+        <attr name="unSelectImg"  format="reference|integer"/>
+        <attr name="margins"  format="reference|integer"/>
+        <attr name="imgWidth"  format="reference|integer"/>
+        <attr name="imgHeight"  format="reference|integer"/>
+
+    </declare-styleable>
+
+</resources>
