@@ -8,7 +8,7 @@
     android:clipToPadding="false"
     >
 
-    <com.test.scroll.widget.HorizontalRecyclerView
+    <com.arcghh.mylibrary.widget.HorizontalRecyclerView
         android:id="@+id/layoutRecyclerview"
         android:layout_width="match_parent"
         android:layout_height="220dp"
@@ -16,7 +16,8 @@
         android:clipToPadding="false"
         />
 
-    <com.test.scroll.widget.PageIndicatorView
+    <!--指示器-->
+    <com.arcghh.mylibrary.widget.PageIndicatorView
         android:id="@+id/pageIndicatorView"
         android:layout_width="match_parent"
         android:layout_height="20dp"

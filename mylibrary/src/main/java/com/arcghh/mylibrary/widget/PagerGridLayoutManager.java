@@ -42,8 +42,6 @@ import static com.arcghh.mylibrary.widget.PagerConfig.Logi;
 
 /**
  * 作用：分页的网格布局管理器
- * 作者：GcsSloop
- * 摘要：
  * 1. 网格布局
  * 2. 支持水平分页和垂直分页
  * 3. 杜绝高内存占用

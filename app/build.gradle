@@ -5,7 +5,7 @@ android {
     buildToolsVersion "28.0.3"
     defaultConfig {
         applicationId "com.test.scroll"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 2
         versionName "1.1"
@@ -84,4 +84,7 @@ dependencies {
     //屏幕适配
     implementation 'me.jessyan:autosize:1.1.2'
 
+    // 解决滑动冲突的依赖
+    //implementation 'com.github.ArcGhh:VPRV:1.1'
+    implementation project(path: ':mylibrary')
 }

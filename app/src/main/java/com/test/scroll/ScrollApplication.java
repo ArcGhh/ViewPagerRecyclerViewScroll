@@ -2,6 +2,8 @@ package com.test.scroll;
 
 import android.app.Application;
 
+import com.arcghh.mylibrary.util.LibSDK;
+
 /**
  * @author ganhuanhui
  * 时间：2019/12/25 0025
@@ -19,5 +21,6 @@ public class ScrollApplication extends Application {
     public void onCreate() {
         super.onCreate();
         sApplication = this;
+        LibSDK.init(this);
     }
 }

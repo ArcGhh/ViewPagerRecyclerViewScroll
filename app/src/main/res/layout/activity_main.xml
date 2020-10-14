@@ -18,7 +18,7 @@
             app:tabMode="fixed"
             />
 
-        <com.test.scroll.widget.NoScrollViewPager
+        <com.arcghh.mylibrary.widget.NoScrollViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

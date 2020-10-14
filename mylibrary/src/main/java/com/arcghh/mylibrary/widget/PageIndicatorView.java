@@ -16,8 +16,6 @@ import java.util.List;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 /**
- * Created by shichaohui on 2015/7/10 0010.
- * <p/>
  * 页码指示器类，获得此类实例后，可通过{@link PageIndicatorView#initIndicator(int)}方法初始化指示器
  * </P>
  */

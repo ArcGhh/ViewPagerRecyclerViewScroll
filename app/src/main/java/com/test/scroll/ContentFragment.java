@@ -6,24 +6,23 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.arcghh.mylibrary.util.SizeUtils;
+import com.arcghh.mylibrary.widget.HorizontalRecyclerView;
+import com.arcghh.mylibrary.widget.PageIndicatorView;
+import com.arcghh.mylibrary.widget.PagerConfig;
+import com.arcghh.mylibrary.widget.PagerGridLayoutManager;
+import com.arcghh.mylibrary.widget.PagerGridSnapHelper;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.test.scroll.adapter.DataAdapter;
 import com.test.scroll.adapter.HeadTopPageAdapter;
 import com.test.scroll.bean.DataInfo;
 import com.test.scroll.databinding.FragmentContentBinding;
-import com.test.scroll.util.SizeUtils;
-import com.test.scroll.widget.HorizontalRecyclerView;
-import com.test.scroll.widget.PageIndicatorView;
-import com.test.scroll.widget.PagerConfig;
-import com.test.scroll.widget.PagerGridLayoutManager;
-import com.test.scroll.widget.PagerGridSnapHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -127,7 +126,10 @@ public class ContentFragment extends Fragment {
         final HorizontalRecyclerView pageRecyclerView = view.findViewById(R.id.layoutRecyclerview);
         final PageIndicatorView pageIndicatorView = view.findViewById(R.id.pageIndicatorView);
 
-        // 设置右边距
+        // 设置右边距, 目的是为了能够看到下一页的内容，如果不需要，可以不设置
+        // 注意：如果需要设置右边距, 需要在xml中的HorizontalRecyclerView和其父布局添加以下2行代码
+        // android:clipChildren="false"
+        // android:clipToPadding="false"
         LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) pageRecyclerView.getLayoutParams();
         lp.rightMargin = type == 0 ? SizeUtils.dp2px(50) : 0;
 
